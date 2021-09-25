@@ -18,3 +18,11 @@ def listing(request):
         'posts': posts_list[:4]
     }
     return render(request, 'posts/list.html', context)
+
+
+def view(request, title):
+    posts = [post for post in posts_list if post.get('title') == title]
+    context = {
+        'post': posts[0]
+    }
+    return render(request, 'posts/view.html', context)
