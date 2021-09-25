@@ -8,8 +8,7 @@
     <div class="row">
         <div class="col-md-6 text-center full-content">
             <h2 class="section-title no-border v-3"><span>Latest</span> From Blog</h2>
-            <p class="sub-section-title v-2">Etiam congue rhoncus gravida. Sed vel sodales tortor. Donec eget dictum
-                enim. Donec tempus euismod metus ac maximus, aenean mattis.</p>
+            <p class="sub-section-title v-2">Explore latest three Posts from the blog</p>
             <div class="mrb-45"></div>
             <!--  /.mrb -->
         </div>
@@ -20,158 +19,59 @@
     <div class="row">
         <div class="col-12">
             <div class="row">
-                <div class="col-md-6 col-xl-4">
-                    <article class="post">
-                        <div class="article-v2">
-                            <figure class="article-thumb">
-                                <a href="#">
-                                    <img alt="blog image" src="https://via.placeholder.com/350x280/FFB6C1/000000"/>
-                                </a>
-                            </figure>
-                            <!-- /.article-thumb -->
-                            <div class="article-content-main">
-                                <div class="article-header">
-                                    <h2 class="entry-title"><a href="#">The day you become better.</a></h2>
-                                    <div class="entry-meta">
-                                        <div class="entry-date">July 25,2017</div>
-                                        <!-- /.entry-date -->
-                                        <div class="entry-cat">
-                                            <a href="#">Halie Rose</a>
+                {% for post in posts %}
+                    <div class="col-md-6 col-xl-4">
+                        <article class="post">
+                            <div class="article-v2">
+                                <figure class="article-thumb">
+                                    <a href="#">
+                                        <img alt="blog image" src="https://via.placeholder.com/350x280/FFB6C1/000000"/>
+                                    </a>
+                                </figure>
+                                <!-- /.article-thumb -->
+                                <div class="article-content-main">
+                                    <div class="article-header">
+                                        <h2 class="entry-title"><a
+                                                href="#">{{ post.title|truncatechars:80|truncatewords:10 }}</a></h2>
+                                        <div class="entry-meta">
+                                            <div class="entry-date">July 25,2017</div>
+                                            <!-- /.entry-date -->
+                                            <div class="entry-cat">
+                                                <a href="#">Halie Rose</a>
+                                            </div>
+                                            <!--  /.entry-cat -->
                                         </div>
-                                        <!--  /.entry-cat -->
+                                        <!-- /.entry-meta -->
                                     </div>
-                                    <!-- /.entry-meta -->
-                                </div>
-                                <!-- /.article-header -->
-                                <div class="article-content">
-                                    <p>Maecenas tempus, tellus eget anyti condimentum rhoncus, sem quam.</p>
-                                </div>
-                                <!--  /.article-content -->
-                                <div class="article-footer">
-                                    <div class="row">
-                                        <div class="col-6 text-left footer-link">
-                                            <a class="more-link" href="#">Read More</a>
-                                        </div>
-                                        <!--  /.col-6 -->
-                                        <div class="col-6 text-right footer-meta">
-                                            <a href="#">65 <i class="pe-7s-comment"></i></a>
-                                            <a href="#">50 <i class="pe-7s-share"></i></a>
-                                        </div>
-                                        <!--  /.col-6 -->
+                                    <!-- /.article-header -->
+                                    <div class="article-content">
+                                        <p>Maecenas tempus, tellus eget anyti condimentum rhoncus, sem quam.</p>
                                     </div>
-                                    <!--  /.row -->
+                                    <!--  /.article-content -->
+                                    <div class="article-footer">
+                                        <div class="row">
+                                            <div class="col-6 text-left footer-link">
+                                                <a class="more-link" href="#">Read More</a>
+                                            </div>
+                                            <!--  /.col-6 -->
+                                            <div class="col-6 text-right footer-meta">
+                                                <a href="#">65 <i class="pe-7s-comment"></i></a>
+                                                <a href="#">50 <i class="pe-7s-share"></i></a>
+                                            </div>
+                                            <!--  /.col-6 -->
+                                        </div>
+                                        <!--  /.row -->
+                                    </div>
+                                    <!--  /.article-footer -->
                                 </div>
-                                <!--  /.article-footer -->
+                                <!--  /.article-content-main -->
                             </div>
-                            <!--  /.article-content-main -->
-                        </div>
-                        <!--  /.article-v2 -->
-                    </article>
-                    <!--  /.post -->
-                </div>
-                <!--  /.col-md-6 -->
-
-                <div class="col-md-6 col-xl-4">
-                    <article class="post">
-                        <div class="article-v2">
-                            <figure class="article-thumb">
-                                <a href="#">
-                                    <img alt="blog image" src="https://via.placeholder.com/350x280/87CEFA/000000"/>
-                                </a>
-                            </figure>
-                            <!-- /.article-thumb -->
-                            <div class="article-content-main">
-                                <div class="article-header">
-                                    <h2 class="entry-title"><a href="#">The day you become better.</a></h2>
-                                    <div class="entry-meta">
-                                        <div class="entry-date">July 25,2017</div>
-                                        <!-- /.entry-date -->
-                                        <div class="entry-cat">
-                                            <a href="#">Halie Rose</a>
-                                        </div>
-                                        <!--  /.entry-cat -->
-                                    </div>
-                                    <!-- /.entry-meta -->
-                                </div>
-                                <!-- /.article-header -->
-                                <div class="article-content">
-                                    <p>Maecenas tempus, tellus eget anyti condimentum rhoncus, sem quam.</p>
-                                </div>
-                                <!--  /.article-content -->
-                                <div class="article-footer">
-                                    <div class="row">
-                                        <div class="col-6 text-left footer-link">
-                                            <a class="more-link" href="#">Read More</a>
-                                        </div>
-                                        <!--  /.col-6 -->
-                                        <div class="col-6 text-right footer-meta">
-                                            <a href="#">65 <i class="pe-7s-comment"></i></a>
-                                            <a href="#">50 <i class="pe-7s-share"></i></a>
-                                        </div>
-                                        <!--  /.col-6 -->
-                                    </div>
-                                    <!--  /.row -->
-                                </div>
-                                <!--  /.article-footer -->
-                            </div>
-                            <!--  /.article-content-main -->
-                        </div>
-                        <!--  /.article-v2 -->
-                    </article>
-                    <!--  /.post -->
-                </div>
-                <!--  /.col-md-6 -->
-
-                <div class="col-md-6 col-xl-4">
-                    <article class="post">
-                        <div class="article-v2">
-                            <figure class="article-thumb">
-                                <a href="#">
-                                    <img alt="blog image" src="https://via.placeholder.com/350x280/20B2AA/000000"/>
-                                </a>
-                            </figure>
-                            <!-- /.article-thumb -->
-                            <div class="article-content-main">
-                                <div class="article-header">
-                                    <h2 class="entry-title"><a href="#">The day you become better.</a></h2>
-                                    <div class="entry-meta">
-                                        <div class="entry-date">July 25,2017</div>
-                                        <!-- /.entry-date -->
-                                        <div class="entry-cat">
-                                            <a href="#">Halie Rose</a>
-                                        </div>
-                                        <!--  /.entry-cat -->
-                                    </div>
-                                    <!-- /.entry-meta -->
-                                </div>
-                                <!-- /.article-header -->
-                                <div class="article-content">
-                                    <p>Maecenas tempus, tellus eget anyti condimentum rhoncus, sem quam.</p>
-                                </div>
-                                <!--  /.article-content -->
-                                <div class="article-footer">
-                                    <div class="row">
-                                        <div class="col-6 text-left footer-link">
-                                            <a class="more-link" href="#">Read More</a>
-                                        </div>
-                                        <!--  /.col-6 -->
-                                        <div class="col-6 text-right footer-meta">
-                                            <a href="#">65 <i class="pe-7s-comment"></i></a>
-                                            <a href="#">50 <i class="pe-7s-share"></i></a>
-                                        </div>
-                                        <!--  /.col-6 -->
-                                    </div>
-                                    <!--  /.row -->
-                                </div>
-                                <!--  /.article-footer -->
-                            </div>
-                            <!--  /.article-content-main -->
-                        </div>
-                        <!--  /.article-v2 -->
-                    </article>
-                    <!--  /.post -->
-                </div>
-                <!--  /.col-md-6 -->
+                            <!--  /.article-v2 -->
+                        </article>
+                        <!--  /.post -->
+                    </div>
+                    <!--  /.col-md-6 -->
+                {% endfor %}
             </div>
             <!--  /.blog-carousel -->
         </div>

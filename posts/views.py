@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from .dummy_posts import posts_list
 from django.shortcuts import render
 
 
@@ -6,4 +7,7 @@ from django.shortcuts import render
 
 
 def latest_posts(request):
-    return render(request,'posts/latest_posts.html')
+    context = {
+        'posts': posts_list[:3]
+    }
+    return render(request,'posts/latest_posts.html',context)
