@@ -13,12 +13,12 @@
                             <img class="d-block img-fluid" src="https://via.placeholder.com/800x280/FFB6C1/000000"
                                  alt="First slide">
                         </div>
-                        <h3><a href="blog-details.html">{{ post.title|truncatewords:25 }}</a></h3>
+                        <h3><a href="{% url 'posts:view' title=post.title %}">{{ post.title|truncatewords:25 }}</a></h3>
                         <p>{{ post.content|truncatewords:50 }}</p>
                     </div>
                     <div class="footer">
                         <div class="actions">
-                            <a href="javascript:void(0);" class="btn btn-outline-secondary">Continue Reading</a>
+                            <a href="{% url 'posts:view' title=post.title %}" class="btn btn-outline-secondary">Continue Reading</a>
                         </div>
                         <ul class="stats">
                             <li><a href="javascript:void(0);">General</a></li>
