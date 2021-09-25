@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from .dummy_posts import post_list
 from django.shortcuts import render
 
@@ -22,6 +22,8 @@ def listing(request):
 
 def view(request, title):
     posts = [post for post in post_list if post.get('title') == title]
+    if not posts :
+        raise Http404
     context = {
         'post': posts[0]
     }
