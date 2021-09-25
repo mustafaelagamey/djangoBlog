@@ -6,4 +6,4 @@ from django.shortcuts import render
 
 
 def latest_posts(request):
-    return HttpResponse("Not Implemented")
+    return render(request,'posts/latest_posts.html')
