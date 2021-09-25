@@ -3,4 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.latest),
+    path('posts', views.listing),
 ]
