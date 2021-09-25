@@ -6,8 +6,8 @@ from django.shortcuts import render
 # Create your views here.
 
 
-def latest_posts(request):
+def latest(request):
     context = {
         'posts': posts_list[:3]
     }
-    return render(request,'posts/latest_posts.html',context)
+    return render(request,'posts/latest.html',context)
