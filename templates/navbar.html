@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="{% url 'posts:latest' %}">Django Blog App</a>
+    <a class="navbar-brand" href="{% url 'post:latest' %}">Django Blog App</a>
     <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
             class="navbar-toggler"
             data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
@@ -9,10 +9,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="{% url 'posts:latest' %}">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'post:latest' %}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="{% url 'posts:listing' %}">Posts <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'post:listing' %}">Posts <span class="sr-only">(current)</span></a>
             </li>
 {#            <li class="nav-item">#}
 {#                <a class="nav-link" href="#">Link</a>#}

@@ -24,7 +24,7 @@
                         <article class="post">
                             <div class="article-v2">
                                 <figure class="article-thumb">
-                                    <a href="{% url 'posts:view' title=post.title %}">
+                                    <a href="{% url 'post:view' title=post.title %}">
                                         <img alt="blog image" src="https://via.placeholder.com/350x280/FFB6C1/000000"/>
                                     </a>
                                 </figure>
@@ -32,7 +32,7 @@
                                 <div class="article-content-main">
                                     <div class="article-header">
                                         <h2 class="entry-title">
-                                            <a href="{% url 'posts:view' title=post.title %}">
+                                            <a href="{% url 'post:view' title=post.title %}">
                                                 {{ post.title|truncatechars:80|truncatewords:10 }}
                                             </a>
                                         </h2>
@@ -54,7 +54,7 @@
                                     <div class="article-footer">
                                         <div class="row">
                                             <div class="col-6 text-left footer-link">
-                                                <a class="more-link" href="{% url 'posts:view' title=post.title %}">Read More</a>
+                                                <a class="more-link" href="{% url 'post:view' title=post.title %}">Read More</a>
                                             </div>
                                             <!--  /.col-6 -->
                                             <div class="col-6 text-right footer-meta">

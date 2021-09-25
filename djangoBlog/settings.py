@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # project apps
-    'posts',
+    'post',
 
     # default apps
     'django.contrib.admin',
