@@ -20,9 +20,9 @@ def listing(request):
     return render(request, 'post/list.html', context)
 
 
-def view(request, title):
-    posts = [post for post in post_list if post.get('title') == title]
-    if not posts :
+def view(request, slug):
+    posts = [post for post in post_list if post.get('slug') == slug]
+    if not posts:
         raise Http404
     context = {
         'post': posts[0]
