@@ -16,4 +16,4 @@ class Post(models.Model):
         super().save(args, kwargs)
 
     def get_absolute_url(self):
-        return reverse(viewname='post:view', args=self.slug)
+        return reverse(viewname='post:view', kwargs={'slug':self.slug})
