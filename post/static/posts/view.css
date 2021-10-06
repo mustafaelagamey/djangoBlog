@@ -4,3 +4,8 @@ p.author {
     font-weight: bold;
     color: darkgray;
 }
+p.post-date {
+    font-style: italic;
+    font-weight: bold;
+    color: darkslategray;
+}
