@@ -39,10 +39,10 @@
                                             </a>
                                         </h2>
                                         <div class="entry-meta">
-                                            <div class="entry-date">July 25,2017</div>
+                                            <div class="entry-date">{{ post.creation_datetime }}</div>
                                             <!-- /.entry-date -->
                                             <div class="entry-cat">
-                                                <a href="#">Halie Rose</a>
+                                                <a href="#">{{ post.author }}</a>
                                             </div>
                                             <!--  /.entry-cat -->
                                         </div>
@@ -50,7 +50,7 @@
                                     </div>
                                     <!-- /.article-header -->
                                     <div class="article-content">
-                                        <p>Maecenas tempus, tellus eget anyti condimentum rhoncus, sem quam.</p>
+                                        <p>{{ post.content|truncatechars:200|truncatewords:25 }}</p>
                                     </div>
                                     <!--  /.article-content -->
                                     <div class="article-footer">

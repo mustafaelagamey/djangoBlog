@@ -8,7 +8,7 @@ from .models import Post, Author
 
 def latest(request):
     context = {
-        'posts': Post.objects.all()[:3]
+        'posts': Post.objects.all().order_by('-creation_datetime')[:3]
     }
     return render(request, 'post/latest.html', context)
 
