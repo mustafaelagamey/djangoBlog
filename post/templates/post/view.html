@@ -15,7 +15,7 @@
                     </div>
                     <div class="row">
                         <ul class="list-unstyled categories-clouds m-b-0">
-                            {% for tag in post.tags.all %}
+                            {% for tag in post_tags %}
                                 <li class="post-tag"><a href="javascript:void(0);">{{ tag.caption }}</a></li>
                             {% endfor %}
 

@@ -21,8 +21,10 @@ def listing(request):
 
 
 def view(request, slug):
+    posts = get_object_or_404(Post.objects, slug=slug)
     context = {
-        'post': get_object_or_404(Post.objects, slug=slug)
+        'post': posts,
+        'post_tags': posts.tags.all()
     }
     return render(request, 'post/view.html', context)
 
