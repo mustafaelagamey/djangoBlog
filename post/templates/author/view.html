@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">Author name is : {{ author.name }}</div>
+
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12 ">
+            <div class="btn btn-danger float-right" onClick="javascript:history.go(-1);">Go Back</div>
+        </div>
+    </div>
+
+{% endblock %}
