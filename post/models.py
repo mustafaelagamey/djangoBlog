@@ -10,6 +10,7 @@ class Post(models.Model):
     content = models.TextField()
     slug = models.SlugField(default="", null=False, unique=True)
     author = models.ForeignKey('Author', null=True, on_delete=models.SET_NULL)
+    tags = models.ManyToManyField('Tag')
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -39,3 +40,10 @@ class Author(models.Model):
 
     def full_name(self):
         return f"{self.first_name} {self.last_name}"
+
+
+class Tag(models.Model):
+    caption = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.caption

@@ -4,8 +4,22 @@ p.author {
     font-weight: bold;
     color: darkgray;
 }
+
 p.post-date {
     font-style: italic;
     font-weight: bold;
     color: darkslategray;
+}
+
+.post-tag a {
+    display: block;
+    border: 1px solid;
+    padding: 6px 10px;
+    border-radius: 3px;
+
+}
+
+.post-tag {
+    display: inline-block;
+    margin-bottom: 5px;
 }
