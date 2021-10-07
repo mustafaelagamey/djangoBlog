@@ -21,16 +21,21 @@ class Post(models.Model):
 
 
 class Author(models.Model):
-    name = models.CharField(max_length=50)
+    first_name = models.CharField(max_length=20)
+    last_name = models.CharField(max_length=20)
+    email = models.EmailField()
     slug = models.SlugField(default="", null=False, unique=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.name)
+            self.slug = slugify(f"{self.first_name} {self.last_name}")
         return super(Author, self).save()
 
     def get_abolute_url(self):
         return reverse('post:author-view', kwargs={'slug': self.slug})
 
     def __str__(self):
-        return self.name
+        return self.full_name()
+
+    def full_name(self):
+        return f"{self.first_name} {self.last_name}"

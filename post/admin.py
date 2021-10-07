@@ -13,8 +13,8 @@ class PostAdmin(admin.ModelAdmin):
 
 
 class AuthorAdmin(admin.ModelAdmin):
-    list_display = ('name',)
-    prepopulated_fields = {'slug': ('name',)}
+    # list_display = ('name',)
+    prepopulated_fields = {'slug': ('first_name', 'last_name')}
 
 
 admin.site.register(Post, PostAdmin)

@@ -2,7 +2,15 @@
 
 {% block content %}
     <div class="row">
-        <div class="col-12">Author name is : {{ author.name }}</div>
+        <b>{{ author.full_name }}</b>
+    </div>
+    <div class="row">
+        <div class="col-6">First name :</div>
+        <div class="col-6">{{ author.first_name }}</div>
+        <div class="col-6">Last name :</div>
+        <div class="col-6">{{ author.last_name }}</div>
+        <div class="col-6">Email :</div>
+        <div class="col-6">{{ author.email }}</div>
 
     </div>
     <hr>
