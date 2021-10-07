@@ -1,5 +1,5 @@
 from django.http import HttpResponse, Http404
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Post, Author
 
 
@@ -21,21 +21,15 @@ def listing(request):
 
 
 def view(request, slug):
-    try:
-        context = {
-            'post': Post.objects.get(slug=slug)
-        }
-    except (Post.DoesNotExist, Post.MultipleObjectsReturned) as e:
-        raise Http404
+    context = {
+        'post': get_object_or_404(Post.objects, slug=slug)
+    }
     return render(request, 'post/view.html', context)
 
 
 def author_view(request, slug):
-    try:
-        context = {
-            'author': Author.objects.get(slug=slug)
-        }
-    except (Author.DoesNotExist, Author.MultipleObjectsReturned) as e:
-        raise Http404
+    context = {
+        'author': get_object_or_404(Author.objects, slug=slug)
+    }
 
     return render(request, 'author/view.html', context)

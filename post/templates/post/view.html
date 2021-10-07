@@ -25,7 +25,7 @@
                     <p class="post-date">Written in: {{ post.creation_datetime }}</p>
                     {% if post.author %}
 
-                        <p class="author">Written by: <a href="{{ post.author.get_abolute_url }}">{{ post.author }}</a>
+                        <p class="author">Written by: <a href="{{ post.author.get_absolute_url }}">{{ post.author }}</a>
                         </p>
 
                     {% endif %}

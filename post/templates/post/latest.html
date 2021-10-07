@@ -42,7 +42,7 @@
                                             <div class="entry-date">{{ post.creation_datetime }}</div>
                                             <!-- /.entry-date -->
                                             <div class="entry-cat">
-                                                <a href="#">{{ post.author }}</a>
+                                                <a href="{{ post.author.get_absolute_url }}">{{ post.author }}</a>
                                             </div>
                                             <!--  /.entry-cat -->
                                         </div>

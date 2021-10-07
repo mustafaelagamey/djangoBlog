@@ -34,7 +34,7 @@ class Author(models.Model):
             self.slug = slugify(f"{self.first_name} {self.last_name}")
         return super(Author, self).save()
 
-    def get_abolute_url(self):
+    def get_absolute_url(self):
         return reverse('post:author-view', kwargs={'slug': self.slug})
 
     def __str__(self):
