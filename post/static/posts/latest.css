@@ -58,3 +58,10 @@
   font-size: 16px;
   margin-left: 2px;
 }
+
+.post-image  {
+    border-radius: 10px;
+    border: 0.05rem solid lightgray;
+  object-fit:contain;
+  background: lightgray;
+}

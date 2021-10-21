@@ -11,7 +11,7 @@
                 <div class="card single_post">
                     <div class="body">
                         <div class="img-post">
-                            <img class="d-block img-fluid" src="https://via.placeholder.com/800x280/FFB6C1/000000"
+                            <img class="d-block img-fluid" src="{{ post.image.url }}" height="280"
                                  alt="First slide">
                         </div>
                         <h3><a href="{{ post.get_absolute_url }}">{{ post.title|truncatewords:25 }}</a></h3>

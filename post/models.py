@@ -13,6 +13,7 @@ class Post(models.Model):
     slug = models.SlugField(default="", null=False, unique=True)
     author = models.ForeignKey('Author', null=True, on_delete=models.SET_NULL)
     tags = models.ManyToManyField('Tag')
+    image = models.ImageField(default=None, null=True, upload_to='posts_images')
 
     def save(self, *args, **kwargs):
         if not self.slug:

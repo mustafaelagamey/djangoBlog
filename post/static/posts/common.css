@@ -22,6 +22,7 @@
 .single_post {
     -webkit-transition: all .4s ease;
     transition: all .4s ease
+
 }
 
 .single_post .body {
@@ -35,7 +36,15 @@
     margin-bottom: 30px
 }
 
+.img-post {
+    background: lightgray;
+    border-radius: 5px;
+}
 .single_post .img-post>img {
+     margin-left: auto;
+  margin-right: auto;
+  display: block;
+
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1);
