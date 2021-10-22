@@ -52,59 +52,59 @@
                                 </div>
                                 <div class="text-box col-md-10 col-8 p-l-0 p-r0">
                                     <h5 class="m-b-0">{{ comment.name }}</h5>
-                                    <p>{{ comment.text}}</p>
+                                    <p>{{ comment.text }}</p>
                                     <ul class="list-inline">
                                         <li>
                                             <a href="javascript:void(0);">Mar 09 2018</a>
                                         </li>
-{#                                        <li>#}
-{#                                            <a href="javascript:void(0);">Reply</a>#}
-{#                                        </li>#}
+                                        {#                                        <li>#}
+                                        {#                                            <a href="javascript:void(0);">Reply</a>#}
+                                        {#                                        </li>#}
                                     </ul>
                                 </div>
                             </li>
                         {% endfor %}
 
-{#                        <li class="row clearfix">#}
-{#                            <div class="icon-box col-md-2 col-4">#}
-{#                                <img alt="Awesome Image"#}
-{#                                     class="img-fluid img-thumbnail"#}
-{#                                     src="https://bootdey.com/img/Content/avatar/avatar3.png">#}
-{#                            </div>#}
-{#                            <div class="text-box col-md-10 col-8 p-l-0 p-r0">#}
-{#                                <h5 class="m-b-0">Christian Louboutin</h5>#}
-{#                                <p>Great tutorial but few issues with it? If i try open post i get following errors.#}
-{#                                    Please can you help me?</p>#}
-{#                                <ul class="list-inline">#}
-{#                                    <li>#}
-{#                                        <a href="javascript:void(0);">Mar 12 2018</a>#}
-{#                                    </li>#}
-{#                                    <li>#}
-{#                                        <a href="javascript:void(0);">Reply</a>#}
-{#                                    </li>#}
-{#                                </ul>#}
-{#                            </div>#}
-{#                        </li>#}
-{#                        <li class="row clearfix">#}
-{#                            <div class="icon-box col-md-2 col-4">#}
-{#                                <img alt="Awesome Image"#}
-{#                                     class="img-fluid img-thumbnail"#}
-{#                                     src="https://bootdey.com/img/Content/avatar/avatar4.png">#}
-{#                            </div>#}
-{#                            <div class="text-box col-md-10 col-8 p-l-0 p-r0">#}
-{#                                <h5 class="m-b-0">Kendall Jenner</h5>#}
-{#                                <p>Very nice and informative article. In all the years I've done small and#}
-{#                                    side-projects as a freelancer, I've ran into a few problems here and there.</p>#}
-{#                                <ul class="list-inline">#}
-{#                                    <li>#}
-{#                                        <a href="javascript:void(0);">Mar 20 2018</a>#}
-{#                                    </li>#}
-{#                                    <li>#}
-{#                                        <a href="javascript:void(0);">Reply</a>#}
-{#                                    </li>#}
-{#                                </ul>#}
-{#                            </div>#}
-{#                        </li>#}
+                        {#                        <li class="row clearfix">#}
+                        {#                            <div class="icon-box col-md-2 col-4">#}
+                        {#                                <img alt="Awesome Image"#}
+                        {#                                     class="img-fluid img-thumbnail"#}
+                        {#                                     src="https://bootdey.com/img/Content/avatar/avatar3.png">#}
+                        {#                            </div>#}
+                        {#                            <div class="text-box col-md-10 col-8 p-l-0 p-r0">#}
+                        {#                                <h5 class="m-b-0">Christian Louboutin</h5>#}
+                        {#                                <p>Great tutorial but few issues with it? If i try open post i get following errors.#}
+                        {#                                    Please can you help me?</p>#}
+                        {#                                <ul class="list-inline">#}
+                        {#                                    <li>#}
+                        {#                                        <a href="javascript:void(0);">Mar 12 2018</a>#}
+                        {#                                    </li>#}
+                        {#                                    <li>#}
+                        {#                                        <a href="javascript:void(0);">Reply</a>#}
+                        {#                                    </li>#}
+                        {#                                </ul>#}
+                        {#                            </div>#}
+                        {#                        </li>#}
+                        {#                        <li class="row clearfix">#}
+                        {#                            <div class="icon-box col-md-2 col-4">#}
+                        {#                                <img alt="Awesome Image"#}
+                        {#                                     class="img-fluid img-thumbnail"#}
+                        {#                                     src="https://bootdey.com/img/Content/avatar/avatar4.png">#}
+                        {#                            </div>#}
+                        {#                            <div class="text-box col-md-10 col-8 p-l-0 p-r0">#}
+                        {#                                <h5 class="m-b-0">Kendall Jenner</h5>#}
+                        {#                                <p>Very nice and informative article. In all the years I've done small and#}
+                        {#                                    side-projects as a freelancer, I've ran into a few problems here and there.</p>#}
+                        {#                                <ul class="list-inline">#}
+                        {#                                    <li>#}
+                        {#                                        <a href="javascript:void(0);">Mar 20 2018</a>#}
+                        {#                                    </li>#}
+                        {#                                    <li>#}
+                        {#                                        <a href="javascript:void(0);">Reply</a>#}
+                        {#                                    </li>#}
+                        {#                                </ul>#}
+                        {#                            </div>#}
+                        {#                        </li>#}
                     </ul>
                 </div>
             </div>
@@ -121,16 +121,21 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     {{ comment_form.commenter }}
+                                    {{ comment_form.errors.commenter }}
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     {{ comment_form.commenter_email }}
+                                    {{ comment_form.errors.commenter_email }}
+
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     {{ comment_form.text }}
+                                    {{ comment_form.errors.text }}
+
                                 </div>
                                 <button class="btn btn-block btn-primary" type="submit">SUBMIT</button>
                             </div>
