@@ -36,7 +36,7 @@ class Author(models.Model):
         return super(Author, self).save()
 
     def get_absolute_url(self):
-        return reverse('post:author-view', kwargs={'slug': self.slug})
+        return reverse('post:author-detail', kwargs={'slug': self.slug})
 
     def __str__(self):
         return self.full_name()

@@ -37,9 +37,6 @@ class PostDetailView(DetailView):
         return context
 
 
-def author_view(request, slug):
-    context = {
-        'author': get_object_or_404(Author.objects, slug=slug)
-    }
-
-    return render(request, 'author/view.html', context)
+class AuthorDetailView(DetailView):
+    model = Author
+    template_name = 'author/detail.html'
