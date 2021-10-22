@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.text import slugify
 
-from .models import Post, Author, Tag
+from .models import Post, Author, Tag, Comment
 
 
 # Register your models here.
@@ -21,3 +21,4 @@ admin.site.register(Post, PostAdmin)
 
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(Tag)
+admin.site.register(Comment)

@@ -1,9 +1,13 @@
 from django.http import HttpResponse, Http404
-from django.shortcuts import render, get_object_or_404
 from django.views import View
 from django.views.generic import ListView, DetailView
 
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse, reverse_lazy
+from django.views.generic import FormView
+
 from .models import Post, Author
+from .forms import CommentForm
 
 
 # Create your views here.
@@ -33,10 +37,22 @@ class PostDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(PostDetailView, self).get_context_data(**kwargs)
-        context.update(post_tags=self.object.tags.all())
+        context.update(post_tags=self.object.tags.all(), comment_form=CommentForm())
+
         return context
 
 
 class AuthorDetailView(DetailView):
     model = Author
     template_name = 'author/detail.html'
+
+
+class CommentView(View):
+    def post(self,request,slug):
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('post:detail', slug=slug)
+
+    def get(self, request, slug):
+        raise Http404

@@ -16,16 +16,21 @@
                     <div class="row">
                         <ul class="list-unstyled categories-clouds m-b-0">
                             {% for tag in post_tags %}
-                                <li class="post-tag"><a href="javascript:void(0);">{{ tag.caption }}</a></li>
+                                <li class="post-tag">
+                                    <a href="javascript:void(0);">{{ tag.caption }}</a>
+                                </li>
                             {% endfor %}
 
                         </ul>
                     </div>
-                    <h3><a href="blog-details.html">{{ post.title }}</a></h3>
+                    <h3>
+                        <a href="blog-details.html">{{ post.title }}</a>
+                    </h3>
                     <p class="post-date">Written in: {{ post.creation_datetime }}</p>
                     {% if post.author %}
 
-                        <p class="author">Written by: <a href="{{ post.author.get_absolute_url }}">{{ post.author }}</a>
+                        <p class="author">Written by:
+                            <a href="{{ post.author.get_absolute_url }}">{{ post.author }}</a>
                         </p>
 
                     {% endif %}
@@ -34,56 +39,72 @@
             </div>
             <div class="card">
                 <div class="header">
-                    <h2>Comments 3</h2>
+                    <h2>Comments {{ post.comments.count }}</h2>
                 </div>
                 <div class="body">
                     <ul class="comment-reply list-unstyled">
-                        <li class="row clearfix">
-                            <div class="icon-box col-md-2 col-4">
-                                <img alt="Awesome Image"
-                                     class="img-fluid img-thumbnail"
-                                     src="https://bootdey.com/img/Content/avatar/avatar7.png">
-                            </div>
-                            <div class="text-box col-md-10 col-8 p-l-0 p-r0">
-                                <h5 class="m-b-0">Gigi Hadid </h5>
-                                <p>Why are there so many tutorials on how to decouple WordPress? how fast and easy
-                                    it is to get it running (and keep it running!) and its massive ecosystem. </p>
-                                <ul class="list-inline">
-                                    <li><a href="javascript:void(0);">Mar 09 2018</a></li>
-                                    <li><a href="javascript:void(0);">Reply</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="row clearfix">
-                            <div class="icon-box col-md-2 col-4"><img alt="Awesome Image"
-                                                                      class="img-fluid img-thumbnail"
-                                                                      src="https://bootdey.com/img/Content/avatar/avatar3.png">
-                            </div>
-                            <div class="text-box col-md-10 col-8 p-l-0 p-r0">
-                                <h5 class="m-b-0">Christian Louboutin</h5>
-                                <p>Great tutorial but few issues with it? If i try open post i get following errors.
-                                    Please can you help me?</p>
-                                <ul class="list-inline">
-                                    <li><a href="javascript:void(0);">Mar 12 2018</a></li>
-                                    <li><a href="javascript:void(0);">Reply</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="row clearfix">
-                            <div class="icon-box col-md-2 col-4"><img alt="Awesome Image"
-                                                                      class="img-fluid img-thumbnail"
-                                                                      src="https://bootdey.com/img/Content/avatar/avatar4.png">
-                            </div>
-                            <div class="text-box col-md-10 col-8 p-l-0 p-r0">
-                                <h5 class="m-b-0">Kendall Jenner</h5>
-                                <p>Very nice and informative article. In all the years I've done small and
-                                    side-projects as a freelancer, I've ran into a few problems here and there.</p>
-                                <ul class="list-inline">
-                                    <li><a href="javascript:void(0);">Mar 20 2018</a></li>
-                                    <li><a href="javascript:void(0);">Reply</a></li>
-                                </ul>
-                            </div>
-                        </li>
+                        {% for comment in post.comments.all %}
+                            <li class="row clearfix">
+                                <div class="icon-box col-md-2 col-4">
+                                    <img alt="Awesome Image"
+                                         class="img-fluid img-thumbnail"
+                                         src="https://picsum.photos/200/300?random={{ comment.id }}">
+                                </div>
+                                <div class="text-box col-md-10 col-8 p-l-0 p-r0">
+                                    <h5 class="m-b-0">{{ comment.name }}</h5>
+                                    <p>{{ comment.text}}</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <a href="javascript:void(0);">Mar 09 2018</a>
+                                        </li>
+{#                                        <li>#}
+{#                                            <a href="javascript:void(0);">Reply</a>#}
+{#                                        </li>#}
+                                    </ul>
+                                </div>
+                            </li>
+                        {% endfor %}
+
+{#                        <li class="row clearfix">#}
+{#                            <div class="icon-box col-md-2 col-4">#}
+{#                                <img alt="Awesome Image"#}
+{#                                     class="img-fluid img-thumbnail"#}
+{#                                     src="https://bootdey.com/img/Content/avatar/avatar3.png">#}
+{#                            </div>#}
+{#                            <div class="text-box col-md-10 col-8 p-l-0 p-r0">#}
+{#                                <h5 class="m-b-0">Christian Louboutin</h5>#}
+{#                                <p>Great tutorial but few issues with it? If i try open post i get following errors.#}
+{#                                    Please can you help me?</p>#}
+{#                                <ul class="list-inline">#}
+{#                                    <li>#}
+{#                                        <a href="javascript:void(0);">Mar 12 2018</a>#}
+{#                                    </li>#}
+{#                                    <li>#}
+{#                                        <a href="javascript:void(0);">Reply</a>#}
+{#                                    </li>#}
+{#                                </ul>#}
+{#                            </div>#}
+{#                        </li>#}
+{#                        <li class="row clearfix">#}
+{#                            <div class="icon-box col-md-2 col-4">#}
+{#                                <img alt="Awesome Image"#}
+{#                                     class="img-fluid img-thumbnail"#}
+{#                                     src="https://bootdey.com/img/Content/avatar/avatar4.png">#}
+{#                            </div>#}
+{#                            <div class="text-box col-md-10 col-8 p-l-0 p-r0">#}
+{#                                <h5 class="m-b-0">Kendall Jenner</h5>#}
+{#                                <p>Very nice and informative article. In all the years I've done small and#}
+{#                                    side-projects as a freelancer, I've ran into a few problems here and there.</p>#}
+{#                                <ul class="list-inline">#}
+{#                                    <li>#}
+{#                                        <a href="javascript:void(0);">Mar 20 2018</a>#}
+{#                                    </li>#}
+{#                                    <li>#}
+{#                                        <a href="javascript:void(0);">Reply</a>#}
+{#                                    </li>#}
+{#                                </ul>#}
+{#                            </div>#}
+{#                        </li>#}
                     </ul>
                 </div>
             </div>
@@ -94,22 +115,22 @@
                 </div>
                 <div class="body">
                     <div class="comment-form">
-                        <form class="row clearfix">
+                        <form class="row clearfix" method="post" action="{% url 'post:comment' slug=post.slug %}">
+                            <input type="hidden" name="post" value="{{ post.pk }}">
+                            {% csrf_token %}
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Your Name" type="text">
+                                    {{ comment_form.commenter }}
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Email Address" type="text">
+                                    {{ comment_form.commenter_email }}
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                        <textarea class="form-control no-resize"
-                                                  placeholder="Please type what you want..."
-                                                  rows="4"></textarea>
+                                    {{ comment_form.text }}
                                 </div>
                                 <button class="btn btn-block btn-primary" type="submit">SUBMIT</button>
                             </div>
@@ -135,16 +156,36 @@
                 </div>
                 <div class="body widget">
                     <ul class="list-unstyled categories-clouds m-b-0">
-                        <li><a href="javascript:void(0);">eCommerce</a></li>
-                        <li><a href="javascript:void(0);">Microsoft Technologies</a></li>
-                        <li><a href="javascript:void(0);">Creative UX</a></li>
-                        <li><a href="javascript:void(0);">Wordpress</a></li>
-                        <li><a href="javascript:void(0);">Angular JS</a></li>
-                        <li><a href="javascript:void(0);">Enterprise Mobility</a></li>
-                        <li><a href="javascript:void(0);">Website Design</a></li>
-                        <li><a href="javascript:void(0);">HTML5</a></li>
-                        <li><a href="javascript:void(0);">Infographics</a></li>
-                        <li><a href="javascript:void(0);">Wordpress Development</a></li>
+                        <li>
+                            <a href="javascript:void(0);">eCommerce</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Microsoft Technologies</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Creative UX</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Wordpress</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Angular JS</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Enterprise Mobility</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Website Design</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">HTML5</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Infographics</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Wordpress Development</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -181,32 +222,59 @@
                 </div>
                 <div class="body widget">
                     <ul class="list-unstyled instagram-plugin m-b-0">
-                        <li><a href="javascript:void(0);"><img
-                                alt="image description" src="https://via.placeholder.com/100x100/87CEFA/000000"></a>
+                        <li>
+                            <a href="javascript:void(0);">
+                                <img
+                                        alt="image description" src="https://via.placeholder.com/100x100/87CEFA/000000">
+                            </a>
                         </li>
-                        <li><a href="javascript:void(0);"><img
-                                alt="image description" src="https://via.placeholder.com/100x100/87CEFA/000000"></a>
+                        <li>
+                            <a href="javascript:void(0);">
+                                <img
+                                        alt="image description" src="https://via.placeholder.com/100x100/87CEFA/000000">
+                            </a>
                         </li>
-                        <li><a href="javascript:void(0);"><img
-                                alt="image description" src="https://via.placeholder.com/100x100/87CEFA/000000"></a>
+                        <li>
+                            <a href="javascript:void(0);">
+                                <img
+                                        alt="image description" src="https://via.placeholder.com/100x100/87CEFA/000000">
+                            </a>
                         </li>
-                        <li><a href="javascript:void(0);"><img
-                                alt="image description" src="https://via.placeholder.com/100x100/87CEFA/000000"></a>
+                        <li>
+                            <a href="javascript:void(0);">
+                                <img
+                                        alt="image description" src="https://via.placeholder.com/100x100/87CEFA/000000">
+                            </a>
                         </li>
-                        <li><a href="javascript:void(0);"><img
-                                alt="image description" src="https://via.placeholder.com/100x100/87CEFA/000000"></a>
+                        <li>
+                            <a href="javascript:void(0);">
+                                <img
+                                        alt="image description" src="https://via.placeholder.com/100x100/87CEFA/000000">
+                            </a>
                         </li>
-                        <li><a href="javascript:void(0);"><img
-                                alt="image description" src="https://via.placeholder.com/100x100/87CEFA/000000"></a>
+                        <li>
+                            <a href="javascript:void(0);">
+                                <img
+                                        alt="image description" src="https://via.placeholder.com/100x100/87CEFA/000000">
+                            </a>
                         </li>
-                        <li><a href="javascript:void(0);"><img
-                                alt="image description" src="https://via.placeholder.com/100x100/87CEFA/000000"></a>
+                        <li>
+                            <a href="javascript:void(0);">
+                                <img
+                                        alt="image description" src="https://via.placeholder.com/100x100/87CEFA/000000">
+                            </a>
                         </li>
-                        <li><a href="javascript:void(0);"><img
-                                alt="image description" src="https://via.placeholder.com/100x100/87CEFA/000000"></a>
+                        <li>
+                            <a href="javascript:void(0);">
+                                <img
+                                        alt="image description" src="https://via.placeholder.com/100x100/87CEFA/000000">
+                            </a>
                         </li>
-                        <li><a href="javascript:void(0);"><img
-                                alt="image description" src="https://via.placeholder.com/100x100/87CEFA/000000"></a>
+                        <li>
+                            <a href="javascript:void(0);">
+                                <img
+                                        alt="image description" src="https://via.placeholder.com/100x100/87CEFA/000000">
+                            </a>
                         </li>
                     </ul>
                 </div>

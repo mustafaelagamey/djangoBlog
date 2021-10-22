@@ -50,3 +50,10 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.caption
+
+
+class Comment(models.Model):
+    commenter = models.CharField(max_length=20)
+    commenter_email = models.EmailField(max_length=80)
+    text = models.TextField(max_length=500)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
