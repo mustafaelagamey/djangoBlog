@@ -1,7 +1,7 @@
 from django.http import HttpResponse, Http404
 from django.shortcuts import render, get_object_or_404
 from django.views import View
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 from .models import Post, Author
 
@@ -27,13 +27,14 @@ class PostListView(ListView):
     ordering = ['-creation_datetime']
 
 
-def view(request, slug):
-    posts = get_object_or_404(Post.objects, slug=slug)
-    context = {
-        'post': posts,
-        'post_tags': posts.tags.all()
-    }
-    return render(request, 'post/view.html', context)
+class PostDetailView(DetailView):
+    model = Post
+    template_name = 'post/detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(PostDetailView, self).get_context_data(**kwargs)
+        context.update(post_tags=self.object.tags.all())
+        return context
 
 
 def author_view(request, slug):
