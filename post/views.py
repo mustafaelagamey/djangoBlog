@@ -20,11 +20,11 @@ class LandingPageView(ListView):
         return query_set[:3]
 
 
-def listing(request):
-    context = {
-        'posts': Post.objects.all()[:4]
-    }
-    return render(request, 'post/list.html', context)
+class PostListView(ListView):
+    template_name = 'post/list.html'
+    context_object_name = 'posts'
+    model = Post
+    ordering = ['-creation_datetime']
 
 
 def view(request, slug):
