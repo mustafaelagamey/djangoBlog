@@ -1,16 +1,23 @@
 from django.http import HttpResponse, Http404
 from django.shortcuts import render, get_object_or_404
+from django.views import View
+from django.views.generic import ListView
+
 from .models import Post, Author
 
 
 # Create your views here.
 
 
-def latest(request):
-    context = {
-        'posts': Post.objects.all().order_by('-creation_datetime')[:3]
-    }
-    return render(request, 'post/latest.html', context)
+class LandingPageView(ListView):
+    template_name = 'post/landing_page.html'
+    model = Post
+    context_object_name = 'posts'
+    ordering = ['-creation_datetime']
+
+    def get_queryset(self):
+        query_set = super(LandingPageView, self).get_queryset()
+        return query_set[:3]
 
 
 def listing(request):
