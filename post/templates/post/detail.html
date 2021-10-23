@@ -142,21 +142,25 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     {{ comment_form.commenter }}
-                                    {{ comment_form.errors.commenter }}
+                                    <div class="alert-danger">
+                                        {{ comment_form.errors.commenter }}
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     {{ comment_form.commenter_email }}
-                                    {{ comment_form.errors.commenter_email }}
-
+                                    <div class="alert-danger">
+                                        {{ comment_form.errors.commenter_email }}
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     {{ comment_form.text }}
-                                    {{ comment_form.errors.text }}
-
+                                    <div class="alert-danger">
+                                        {{ comment_form.errors.text }}
+                                    </div>
                                 </div>
                                 <button class="btn btn-block btn-primary" type="submit">SUBMIT</button>
                             </div>
