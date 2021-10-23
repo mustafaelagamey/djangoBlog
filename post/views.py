@@ -50,12 +50,15 @@ class AuthorDetailView(DetailView):
 class CommentView(View):
     def post(self, request, slug):
         form = CommentForm(request.POST)
+        post = Post.objects.get(slug=slug)
         if form.is_valid():
-            form.save()
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
         else:
             context = {
                 'comment_form': form,
-                'post': form.cleaned_data['post']
+                'post': post
             }
             return render(request, 'post/detail.html', context=context)
         return redirect('post:detail', slug=slug)

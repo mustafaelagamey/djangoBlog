@@ -120,7 +120,6 @@
                 <div class="body">
                     <div class="comment-form">
                         <form class="row clearfix" method="post" action="{% url 'post:comment' slug=post.slug %}">
-                            <input type="hidden" name="post" value="{{ post.pk }}">
                             {% csrf_token %}
                             <div class="col-sm-6">
                                 <div class="form-group">
