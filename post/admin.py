@@ -21,4 +21,16 @@ admin.site.register(Post, PostAdmin)
 
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(Tag)
-admin.site.register(Comment)
+
+
+class CommentAdmin(admin.ModelAdmin):
+    def shorten_text(self, comment):
+        return comment.text[:50]
+
+    def post_slug(self, comment):
+        return comment.post.slug
+
+    list_display = ('commenter', 'post_slug', 'shorten_text')
+
+
+admin.site.register(Comment, CommentAdmin)
