@@ -4,13 +4,7 @@ from .models import Comment
 
 class CommentForm(forms.ModelForm):
     widget = forms.TextInput
-    commenter = forms.CharField(widget=forms.TextInput(
-        attrs={
-            'class': 'form-control',
-            'placeholder': "Your Name"
-        }
-
-    ))
+    commenter = forms.CharField(widget=forms.TextInput())
 
     def get_attrs(self):
         return {
