@@ -55,7 +55,7 @@
                 </div>
                 <div class="body">
                     <ul class="comment-reply list-unstyled">
-                        {% for comment in post.comments.all %}
+                        {% for comment in post.comments.all|dictsortreversed:"creation" %}
                             <li class="row clearfix">
                                 <div class="icon-box col-md-2 col-4">
                                     <img alt="Awesome Image"
