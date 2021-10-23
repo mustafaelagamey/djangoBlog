@@ -17,7 +17,7 @@ class LandingPageView(ListView):
     template_name = 'post/landing_page.html'
     model = Post
     context_object_name = 'posts'
-    ordering = ['-creation_datetime']
+    ordering = ['-creation']
 
     def get_queryset(self):
         query_set = super(LandingPageView, self).get_queryset()
@@ -28,7 +28,7 @@ class PostListView(ListView):
     template_name = 'post/list.html'
     context_object_name = 'posts'
     model = Post
-    ordering = ['-creation_datetime']
+    ordering = ['-creation']
 
 
 class PostDetailView(DetailView):
@@ -52,12 +52,12 @@ class CommentView(View):
         form = CommentForm(request.POST)
         if form.is_valid():
             form.save()
-        else :
+        else:
             context = {
                 'comment_form': form,
-                'post' : form.cleaned_data['post']
+                'post': form.cleaned_data['post']
             }
-            return render(request, 'post/detail.html',  context=context)
+            return render(request, 'post/detail.html', context=context)
         return redirect('post:detail', slug=slug)
 
     def get(self, request, slug):

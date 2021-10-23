@@ -7,7 +7,7 @@ from django.utils.text import slugify
 
 
 class Post(models.Model):
-    creation_datetime = models.DateTimeField(auto_now_add=True)
+    creation = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=250)
     content = models.TextField(validators=[MinLengthValidator(10)])
     slug = models.SlugField(default="", null=False, unique=True)
@@ -57,3 +57,4 @@ class Comment(models.Model):
     commenter_email = models.EmailField(max_length=80)
     text = models.TextField(max_length=500)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    creation = models.DateTimeField(auto_now_add=True)

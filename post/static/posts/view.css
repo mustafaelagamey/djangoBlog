@@ -23,3 +23,17 @@ p.post-date {
     display: inline-block;
     margin-bottom: 5px;
 }
+
+.comment-text {
+
+    background: lightblue;
+    border-radius: 2px;
+    padding: 4px;
+}
+
+.post-info {
+    background: lightblue;
+    float: right;
+    padding: 10px;
+    border-radius: 0 0 30px 5px;
+}
