@@ -1,0 +1,30 @@
+<div id="{{ post.slug }}" class="card single_post">
+    <div class="body">
+        <div class="img-post">
+            <img class="d-block img-fluid" src="{{ post.image.url }}" height="280"
+                 alt="First slide">
+        </div>
+        <h3>
+            <a href="{{ post.get_absolute_url }}">{{ post.title|truncatewords:25 }}</a>
+        </h3>
+        <p>{{ post.content|truncatewords:50 }}</p>
+    </div>
+    <div class="footer">
+        <div class="actions">
+            <a href="{{ post.get_absolute_url }}" class="btn btn-outline-secondary">Continue Reading</a>
+        </div>
+        <ul class="stats">
+            <li>
+                <a href="javascript:void(0);">General</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" class="fa fa-heart">28</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" class="fa fa-comment">128</a>
+            </li>
+            <li>{% include 'post/includes/read_later_form.html' with slug=post.slug %}</li>
+
+        </ul>
+    </div>
+</div>

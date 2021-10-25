@@ -72,9 +72,9 @@ class ReadLaterView(View):
         print(request.session.get('read_later', []))
         posts = Post.objects.filter(slug__in =  request.session.get('read_later', []))
         context = {
-            'read_later': posts
+            'posts': posts
         }
-        return render(request, 'post/read_later.html', context=context)
+        return render(request, 'post/list.html', context=context)
 
     def post(self, request, slug):
         read_later = request.session.setdefault('read_later', [])
@@ -86,6 +86,5 @@ class ReadLaterView(View):
             if slug in read_later:
                 read_later.remove(slug)
         request.session.modified = True
-        print(read_later)
-
-        return HttpResponseRedirect(request.META.get('HTTP_REFERRER', '/'))
+        print(request.POST)
+        return HttpResponseRedirect(request.POST.get('next', '/'))
