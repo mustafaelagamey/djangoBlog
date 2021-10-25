@@ -1,4 +1,4 @@
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.views import View
 from django.views.generic import ListView, DetailView
 
@@ -65,3 +65,21 @@ class CommentView(View):
 
     def get(self, request, slug):
         raise Http404
+
+
+class ReadLaterView(View):
+    def get(self, request):
+        raise Http404
+
+    def post(self, request, slug):
+        del request.session['read_later']
+        read_later = request.session.setdefault('read_later', [])
+        print(slug)
+        if int(request.POST.get('read_later', 0)):
+            read_later.append(slug)
+        else:
+            if slug in read_later:
+                read_later.remove(slug)
+        # request.session['read_later'] = read_later
+
+        return HttpResponseRedirect(request.META.get('HTTP_REFERRER', '/'))
