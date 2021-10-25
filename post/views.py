@@ -69,17 +69,23 @@ class CommentView(View):
 
 class ReadLaterView(View):
     def get(self, request):
-        raise Http404
+        print(request.session.get('read_later', []))
+        posts = Post.objects.filter(slug__in =  request.session.get('read_later', []))
+        context = {
+            'read_later': posts
+        }
+        return render(request, 'post/read_later.html', context=context)
 
     def post(self, request, slug):
-        del request.session['read_later']
         read_later = request.session.setdefault('read_later', [])
         print(slug)
+        print(read_later)
         if int(request.POST.get('read_later', 0)):
             read_later.append(slug)
         else:
             if slug in read_later:
                 read_later.remove(slug)
-        # request.session['read_later'] = read_later
+        request.session.modified = True
+        print(read_later)
 
         return HttpResponseRedirect(request.META.get('HTTP_REFERRER', '/'))

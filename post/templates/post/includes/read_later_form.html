@@ -5,11 +5,9 @@
     <button class="btn">
 
         {% if slug in request.session.read_later %}
-            <i class="text-secondary pe-7s-star" title="Click to remove"></i>
-
+            <i class="text-danger pe-7s-star" title="Click to remove"></i>
         {% else %}
-
-            <i class="text-danger pe-7s-star" title="Click to read later"></i>
+            <i class="text-secondary pe-7s-star" title="Click to read later"></i>
         {% endif %}
 
     </button>
