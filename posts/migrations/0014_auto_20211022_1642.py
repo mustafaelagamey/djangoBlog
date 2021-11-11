@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('post', '0013_comment_commenter_email'),
+        ('posts', '0013_comment_commenter_email'),
     ]
 
     operations = [

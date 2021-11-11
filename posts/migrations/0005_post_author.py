@@ -7,13 +7,13 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('post', '0004_author'),
+        ('posts', '0004_author'),
     ]
 
     operations = [
         migrations.AddField(
             model_name='post',
             name='author',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='post.author'),
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='posts.author'),
         ),
     ]
