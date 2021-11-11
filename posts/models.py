@@ -21,7 +21,7 @@ class Post(models.Model):
         super().save(args, kwargs)
 
     def get_absolute_url(self):
-        return reverse(viewname='post:detail', kwargs={'slug': self.slug})
+        return reverse(viewname='posts:detail', kwargs={'slug': self.slug})
 
     def __str__(self):
         return self.slug
@@ -39,7 +39,7 @@ class Author(models.Model):
         return super(Author, self).save()
 
     def get_absolute_url(self):
-        return reverse('post:author-detail', kwargs={'slug': self.slug})
+        return reverse('posts:author-detail', kwargs={'slug': self.slug})
 
     def __str__(self):
         return self.full_name()

@@ -1,4 +1,4 @@
-<form  action="{% url 'post:read-later' slug %}#{{ slug }}" method="post">
+<form  action="{% url 'posts:read-later' slug %}#{{ slug }}" method="post">
     <input type="hidden" name="next" value="{{ request.build_absolute_uri }}">
     <input type="hidden" name="read_later" id=""
            value="{% if  slug in request.session.read_later %}0{% else %}1{% endif %}">

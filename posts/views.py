@@ -61,7 +61,7 @@ class CommentView(View):
                 'post': post
             }
             return render(request, 'post/detail.html', context=context)
-        return redirect('post:detail', slug=slug)
+        return redirect('posts:detail', slug=slug)
 
     def get(self, request, slug):
         raise Http404
