@@ -5,13 +5,15 @@ from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
 
+from users.models import Profile
+
 
 class Post(models.Model):
     creation = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=250)
     content = models.TextField(validators=[MinLengthValidator(10)])
     slug = models.SlugField(default="", null=False, unique=True)
-    author = models.ForeignKey('Author', null=True, on_delete=models.SET_NULL)
+    author = models.ForeignKey(Profile, null=True, on_delete=models.SET_NULL)
     tags = models.ManyToManyField('Tag')
     image = models.ImageField(default=None, null=True, upload_to='posts_images')
 
