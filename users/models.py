@@ -13,5 +13,9 @@ class Profile(models.Model):
     profile_image = models.ImageField(null=True, blank=True, upload_to='profiles_images')
 
     def __str__(self):
-        return str(self.email)
+        return self.name
+
+    @property
+    def name(self):
+        return f"{self.first_name} {self.last_name}"
 
