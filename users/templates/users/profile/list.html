@@ -24,23 +24,22 @@
                                 </div>
                                 <div class="candidate-list-details">
                                     <div class="candidate-list-info">
-                                        <div class="candidate-list-title">
-                                            <h5 class="mb-0">
-                                                <a href="#">{{ profile.first_name }} {{ profile.last_name }}</a>
-                                            </h5>
-                                        </div>
+
                                         <div class="candidate-list-option">
                                             <ul class="list-inline">
-                                                <li>{{ profile.short_intro|default_if_none:"" }}</li>
+                                                <li><i class="fas fa-filter pr-1"></i>{{ profile.title }}</li>
+                                                <li><i class="fas fa-map-marker-alt pr-1"></i>{{ profile.address }}
+                                                </li>
                                             </ul>
+
                                         </div>
-                                        <div class="candidate-list-option">
-                                            <ul class="list-inline">
-                                                <li><i class="fas fa-filter pr-1"></i><!-- Title --></li>
-                                                <li><i class="fas fa-map-marker-alt pr-1"></i><!-- Address --></li>
-                                            </ul>
-                                        </div>
+
                                     </div>
+                                </div>
+                                <div class="candidate-list-details">
+                                    <ul class="list-inline">
+                                        <li><i class="fas fa-info-circle pr-1 pl-3"></i>{{ profile.short_intro|default_if_none:"" }}</li>
+                                    </ul>
                                 </div>
                             </td>
                             <td class="candidate-list-favourite-time text-center">

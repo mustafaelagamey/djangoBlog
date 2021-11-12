@@ -8,6 +8,8 @@ class Profile(models.Model):
     first_name = models.CharField( max_length=150, blank=True)
     last_name = models.CharField( max_length=150, blank=True)
     email = models.EmailField( blank=True)
+    title = models.CharField(max_length=80 , null=True)
+    address = models.CharField(max_length=200 , null=True)
     short_intro = models.CharField(max_length=200 , null=True , blank=True)
     bio = models.TextField(blank=True , null=True)
     profile_image = models.ImageField(null=True, blank=True, upload_to='profiles_images')
