@@ -1,9 +1,10 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.urls import reverse, reverse_lazy
+from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView, FormView
 
 from .forms import LoginForm
@@ -31,3 +32,9 @@ class LoginView(FormView):
             raise Exception("Invalid Credentials")
         login(self.request, user)
         return super(LoginView, self).form_valid(form)
+
+
+class LogoutView(View):
+    def get(self, request):
+        logout(self.request)
+        return redirect('login')
