@@ -18,9 +18,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+from users.views import LoginView
+
 urlpatterns = [
                   path('admin/', admin.site.urls),
                   path('', include('posts.urls', namespace='posts')),
                   path('users/', include('users.urls', namespace='users')),
+                  path('login/', LoginView.as_view(),name ='login')
               ] \
               + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
