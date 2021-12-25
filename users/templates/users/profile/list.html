@@ -20,7 +20,11 @@
                         <tr class="candidates-list">
                             <td class="title">
                                 <div class="thumb">
-                                    <img class="img-fluid" src="{{ profile.profile_image.url }}" alt="">
+                                    {% if  profile.profile_image %}
+                                        <img class="img-fluid" src="{{ profile.profile_image.url }}" alt="">
+                                    {% else %}
+                                        <img class="img-fluid" src="" alt="">
+                                    {% endif %} 
                                 </div>
                                 <div class="candidate-list-details">
                                     <div class="candidate-list-info">
