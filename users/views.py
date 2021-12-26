@@ -34,7 +34,6 @@ class LoginView(FormView):
         return super(LoginView, self).form_valid(form)
 
 
-class LogoutView(View):
-    def get(self, request):
-        logout(self.request)
-        return redirect('login')
+def log_user_out(request):
+    logout(request)
+    return redirect('login')
