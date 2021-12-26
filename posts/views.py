@@ -1,6 +1,6 @@
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.views import View
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse, reverse_lazy
@@ -40,6 +40,12 @@ class PostDetailView(DetailView):
         context.update(post_tags=self.object.tags.all(), comment_form=CommentForm())
 
         return context
+
+
+class PostCreateView(CreateView):
+    model = Post
+    template_name = 'post/create.html'
+    fields = '__all__'
 
 
 class AuthorDetailView(DetailView):

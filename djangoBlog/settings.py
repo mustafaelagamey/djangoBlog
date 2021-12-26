@@ -36,6 +36,9 @@ INSTALLED_APPS = [
     'posts',
     'users',
 
+    # 3rd part apps
+    'crispy_forms',
+
     # default apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -138,3 +141,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = BASE_DIR / 'files'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
