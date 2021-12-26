@@ -26,6 +26,12 @@ class LoginView(FormView):
     template_name = 'users/login.html'
     success_url = reverse_lazy('posts:landing-page')
 
+    def get_success_url(self):
+        if self.request.GET.get('next'):
+            return self.request.GET['next']
+        else:
+            return self.success_url
+
     def form_valid(self, form):
         user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
         if not user :

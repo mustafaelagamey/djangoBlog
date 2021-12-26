@@ -1,4 +1,6 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, Http404, HttpResponseRedirect
+from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.generic import ListView, DetailView, CreateView
 
@@ -41,11 +43,14 @@ class PostDetailView(DetailView):
 
         return context
 
-
 class PostCreateView(CreateView):
     model = Post
     template_name = 'post/create.html'
     fields = '__all__'
+
+    @method_decorator(login_required(login_url=reverse_lazy('login')))
+    def dispatch(self,  *args, **kwargs):
+        return super(PostCreateView, self).dispatch(*args,**kwargs)
 
 
 class AuthorDetailView(DetailView):
