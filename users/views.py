@@ -45,4 +45,5 @@ class LoginView(FormView):
 
 def log_user_out(request):
     logout(request)
+    messages.info(request, 'Successful Logout')
     return redirect('login')
