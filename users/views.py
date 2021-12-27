@@ -1,5 +1,6 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from django.contrib import messages
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -34,9 +35,11 @@ class LoginView(FormView):
 
     def form_valid(self, form):
         user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
-        if not user :
-            raise Exception("Invalid Credentials")
-        login(self.request, user)
+        if user:
+            login(self.request, user)
+        else:
+            messages.error(self.request, "Invalid Credentials")
+            return self.form_invalid(form)
         return super(LoginView, self).form_valid(form)
 
 
